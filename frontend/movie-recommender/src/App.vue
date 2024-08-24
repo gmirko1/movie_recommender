@@ -12,11 +12,70 @@ export default {
 
 <style>
 
+
+/*  NAVIGATION */
+.header {
+  position: sticky; 
+  top: 0; 
+  background-color: white; 
+  border-bottom: 1px solid #ddd; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  z-index: 1000; 
+}
+
+.logout-btn {
+  background-color: #B6C4EF;
+  border: none; 
+  color: black; 
+  padding: 8px 16px;
+  font-size: 16px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+.logout-btn:hover {
+  background-color: #B6C4EF; 
+}
+.nav{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a:hover {
+  color: #007bff;
+}
+
+.nav a {
+  text-decoration: none; 
+  color: #333;
+  font-size: 16px; 
+  font-weight: 500;
+  transition: color 0.3s ease; 
+}
+
+.nav-logo{
+  width: 100px;
+  height: 50px;
+}
+
+
+/*  HOME */
+.home-wrapper{
+  height: 100vh;
+  background-color: #B6C4EF;
+}
+
+/*  LOGIN AND SIGNUP */
 .login-link{
   color: #000;
   margin-top: 30px;
 }
-
 
 .input-field{
   font-size: 20px;
