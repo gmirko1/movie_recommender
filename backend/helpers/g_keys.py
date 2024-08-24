@@ -1,0 +1,2 @@
+COOKIE_SECRET = "a6B8pR!2sD&9vLxQe4*Jz@w7F"
+SECRET_KEY = "d7K^mT&2xL9!nQ#rB5%Z*oV"

@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -24,11 +25,18 @@ export default {
     };
   },
   methods: {
-    login() {
-      console.log('Logging in with', this.email, this.password);
+    async login() { 
+      try {
+        const response = await axios.post('/api/login/', {
+          email: this.email,
+          password: this.password
+        });
+        console.log('Login successful', response.data);
+        this.$router.push('/home');
+      } catch (error) {
+        console.error('Login failed', error.response ? error.response.data : error.message);
+      }
     }
   }
 };
 </script>
-
-
