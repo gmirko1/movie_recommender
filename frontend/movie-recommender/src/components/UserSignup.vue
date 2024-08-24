@@ -1,31 +1,35 @@
 <template>
-  <div class="signup-wrapper">
-    <h1>Signup</h1>
+  <div class="login-signup-page">
+    <img :src="logo" alt="Logo" />
     <form @submit.prevent="signup">
       <div>
-        <label for="email">Email:</label>
-        <input type="email" v-model="email" id="email" required>
+        <input type="email" class="input-field" placeholder="Email" v-model="email" id="email" required>
       </div>
       <div>
-        <label for="password">Password:</label>
-        <input type="password" v-model="password" id="password" required>
+        <input type="password"  class="input-field" placeholder="Password" v-model="password" id="password" required>
       </div>
       <div>
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" v-model="confirmPassword" id="confirmPassword" required>
+        <input type="password" class="input-field" placeholder="Confirm Password" v-model="confirmPassword" id="confirmPassword" required>
       </div>
       <button type="submit">Signup</button>
+
     </form>
+    <a class="login-link" href="/login">Already have an account? Login</a>
+
   </div>
 </template>
 
 <script>
+
+import logo from '@/assets/logo.png';
+
 export default {
   data() {
     return {
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      logo,
     };
   },
   methods: {

@@ -4,7 +4,7 @@
         <router-link to="/home">Home</router-link>
       </div>
       <nav class="nav">
-        <router-link to="/movie">Movies</router-link>
+        <router-link to="/movies">Movies</router-link>
         <router-link to="/favourites">Favourites</router-link>
         <router-link to="/profile">Profile</router-link>
         <button @click="handleLogout" class="logout-btn">Logout</button>

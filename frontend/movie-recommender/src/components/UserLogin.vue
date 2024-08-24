@@ -1,27 +1,30 @@
 <template>
-  <div class="login-wrapper">
-    <h1>Login</h1>
+  <div class="login-signup-page">
+    <img :src="logo" alt="Logo" />
     <form @submit.prevent="login">
       <div>
-        <label for="email">Email:</label>
-        <input type="email" v-model="email" id="email" required>
+        <input type="email" class="input-field" placeholder="Email" v-model="email" id="email" required>
       </div>
       <div>
-        <label for="password">Password:</label>
-        <input type="password" v-model="password" id="password" required>
+        <input type="password" class="input-field" placeholder="Password" v-model="password" id="password" required>
       </div>
       <button type="submit">Login</button>
     </form>
+
+    <a class="login-link" href="/signup">If you do not have an account, signup here!</a>
   </div>
 </template>
 
 <script>
+import logo from '@/assets/logo.png';
 import axios from 'axios';
+
 export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      logo
     };
   },
   methods: {
