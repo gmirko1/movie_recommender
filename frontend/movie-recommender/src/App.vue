@@ -64,12 +64,22 @@ export default {
   height: 50px;
 }
 
-
-/*  HOME */
-.home-wrapper{
-  height: 100vh;
-  background-color: #B6C4EF;
+/*  FOOTER */
+.footer {
+  background-color: #f8f9fa; 
+  color: #6c757d;
+  text-align: center; 
+  padding: 20px; 
+  border-top: 1px solid #dee2e6; 
+  position: relative; 
+  bottom: 0; 
+  width: 100%; 
+  font-size: 14px; 
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
 }
+
+
+
 
 /*  LOGIN AND SIGNUP */
 .login-link{

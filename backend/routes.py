@@ -15,13 +15,14 @@ def test_route():
 #############  ROUTES  #################
 
 def _auth_routes(app):
-    @app.route('/api/signup', methods=['POST'])
+    @app.route('/api/signup/', methods=['POST'])
     def _signup():
         try:
-            print("Here")
+            response_signup = signup._signup()
+            return response_signup
         except Exception as ex:
             print(ex)
-            return jsonify(error="Error occured", message=str(ex)), 500
+            return make_response("Error occured"), 500
 
     @app.route('/api/login/', methods=['POST'])
     def _login():
@@ -46,7 +47,17 @@ def _user_routes(app):
     def _home():
         try:
             response_home = home._home()
-            return response_home
+        
+            if response_home is not None:
+                response = make_response('Check sucessfull')
+                response.status_code = 200  
+                return response
+            else:
+                response = make_response('Error occured')
+                response.status_code = 400
+                return response
+            
+            
         except Exception as ex:
             print(ex)
             return make_response("Error occured"), 500

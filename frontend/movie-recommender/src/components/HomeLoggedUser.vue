@@ -9,6 +9,8 @@
   <script>
   import HeaderComponent from './header-footer/HeaderComponent.vue';
   import FooterComponent from './header-footer/FooterComponent.vue';
+  import axios from 'axios';
+
   
   export default {
     components: {
@@ -17,19 +19,25 @@
     },
     methods:
     {
-      async handleHome() {
+        async handleHome() {
         try {
-          const response = await fetch('/api/home', { method: 'GET' });
-          if (response.ok) {
-            this.$router.push('/home'); 
-          } else {
-            console.error('Home failed');
-          }
+            const response = await axios.get('/api/home/');
+            console.log(response)
+            if (response.status === 200) {
+                this.$router.push('/home');
+            } else {
+                this.$router.push('/login');
+            }
         } catch (error) {
-          console.error('Home error:', error);
+            console.error('Home error:', error);
+
+            this.$router.push('/login');
         }
-      }
     }
+    },
+    mounted() {
+    this.handleHome();
+  }
   };
 
   </script>

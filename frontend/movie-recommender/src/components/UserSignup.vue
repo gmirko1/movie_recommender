@@ -22,6 +22,7 @@
 <script>
 
 import logo from '@/assets/logo.png';
+import axios from 'axios';
 
 export default {
   data() {
@@ -33,12 +34,24 @@ export default {
     };
   },
   methods: {
-    signup() {
+   async  signup() {
       if (this.password !== this.confirmPassword) {
         alert('Passwords do not match!');
         return;
       }
-      console.log('Signing up with', this.email, this.password);
+      else{
+        try {
+          await axios.post('/api/signup/', {
+          email: this.email,
+          password: this.password
+        });
+
+        this.$router.push('/login');
+      } catch (error) {
+        console.error('Login failed', error.response ? error.response.data : error.message);
+      }
+      }
+      
     }
   }
 };

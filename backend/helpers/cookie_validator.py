@@ -8,6 +8,4 @@ def _cookie_validator():
         response.status_code = 200
         return response
     else:
-        response = make_response("Cookie not found")
-        response.status_code = 400
-        return response
+        return None

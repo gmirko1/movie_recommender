@@ -5,8 +5,9 @@ app = Flask(__name__)
 
 
 ############### ROUTES #####################
-from routes import _auth_routes
+from routes import _auth_routes, _user_routes
 _auth_routes(app)
+_user_routes(app)
 
 
 ############### RUN #####################
