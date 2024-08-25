@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 #############  IMPORTS  #################
 from user import login, logout, signup
-from logged_in_function import home
+from logged_in_function import home, user_profile
 
 
 #############  TEST ROUTE  #################
@@ -58,6 +58,22 @@ def _user_routes(app):
                 return response
             
             
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+    
+    @app.route('/api/user-profile/', methods = ['GET'])
+    def _user_profile():
+        try:
+            response_user_profile = user_profile._user_profile()
+            if response_user_profile is not None:
+                response =  make_response(jsonify(response_user_profile))
+                return response
+            else:
+                response = make_response('Error occured')
+                response.status_code = 400
+                return response
+     
         except Exception as ex:
             print(ex)
             return make_response("Error occured"), 500
