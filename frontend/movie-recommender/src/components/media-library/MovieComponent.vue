@@ -77,17 +77,3 @@ export default {
   </script>
 
 
-<style>
-.moviesInfo{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.movie-card{
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-}
-
-</style>

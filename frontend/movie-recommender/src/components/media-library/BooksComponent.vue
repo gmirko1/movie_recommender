@@ -71,18 +71,3 @@ export default {
 }
   </script>
 
-
-<style>
-.booksInfo{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.book-card{
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-}
-
-</style>

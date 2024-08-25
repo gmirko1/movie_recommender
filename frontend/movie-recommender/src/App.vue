@@ -145,5 +145,62 @@ export default {
   cursor: pointer;
 }
 
+.movie-wrapper{
+  background-color: #B6C4EF;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.tvshow-wrapper{
+  background-color: #9ca2b4;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.book-wrapper{
+  background-color: #c7cee3;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+
+.moviesInfo{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.movie-card{
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.tvshowsInfo{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tvshow-card{
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.booksInfo{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book-card{
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
 
 </style>

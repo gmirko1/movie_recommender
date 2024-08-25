@@ -175,3 +175,56 @@ def _media_library(app):
         except Exception as ex:
             print(ex)
             return make_response("Error occured"), 500
+    
+    @app.route('/api/likes-movies/', methods = ['GET'])
+    def _get_liked_movies():
+        try:
+            response_like = like_media._get_liked_movies()
+            
+            if response_like is not None:
+                response = make_response(jsonify(response_like))
+                response.status_code = 200  
+                return response
+            else:
+                response = make_response('Error occured')
+                response.status_code = 400
+                return response
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+    
+    @app.route('/api/likes-tvshows/', methods = ['GET'])
+    def _get_liked_tvshows():
+        try:
+            response_like = like_media._get_liked_tvshows()
+            
+            if response_like is not None:
+                response = make_response(jsonify(response_like))
+                response.status_code = 200  
+                return response
+            else:
+                response = make_response('Error occured')
+                response.status_code = 400
+                return response
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+    
+    @app.route('/api/likes-books/', methods = ['GET'])    
+    def _get_liked_books():
+        try:
+            response_like = like_media._get_liked_books()
+            
+            if response_like is not None:
+                response = make_response(jsonify(response_like))
+                response.status_code = 200  
+                return response
+            else:
+                response = make_response('Error occured')
+                response.status_code = 400
+                return response
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+        
+         
