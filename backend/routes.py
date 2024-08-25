@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 #############  IMPORTS  #################
 from user import login, logout, signup
-from logged_in_function import home, user_profile
+from logged_in_function import home, user_profile, recommendation
 from media_library import movies, tvshows, books, like_media
 
 
@@ -217,6 +217,24 @@ def _media_library(app):
             
             if response_like is not None:
                 response = make_response(jsonify(response_like))
+                response.status_code = 200  
+                return response
+            else:
+                response = make_response('Error occured')
+                response.status_code = 400
+                return response
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+    
+    @app.route('/api/recommendation/', methods = ['POST'])    
+    def _get_recommendation():
+        try:
+            response_recommendation = recommendation._get_recommendation()
+            
+            
+            if response_recommendation is not None:
+                response = make_response(jsonify(response_recommendation))
                 response.status_code = 200  
                 return response
             else:

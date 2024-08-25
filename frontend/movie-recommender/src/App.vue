@@ -122,7 +122,7 @@ export default {
 
 
 
-.login-signup-page button{
+.login-signup-page button, .recommendor-wrapper button{
   background-color: #000;
   border-radius: 10px;
   color: #B6C4EF;
@@ -135,7 +135,7 @@ export default {
   cursor: pointer;
 }
 
-.login-signup-page button:hover{
+.login-signup-page button:hover, .recommendor-wrapper button:hover{
   background-color:#B6C4EF ;
   color: #000;
 }
