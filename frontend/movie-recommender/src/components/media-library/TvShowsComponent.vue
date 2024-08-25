@@ -11,6 +11,7 @@
                 <p><b>{{ tvShow[1] }}</b></p>
                 <p>{{ tvShow[3] }}</p>
                 <p>{{ tvShow[2] }}</p>
+                <button type="submit" class="like-button" @click="likeTvShow(tvShow[0])">❤️</button>
 
             </div>
           </div>
@@ -51,12 +52,21 @@ export default {
       this.tvShowsData = response.data;
 
 
+
     } catch (error) {
       console.error('Movie failed', error.response ? error.response.data : error.message);
       this.$router.push('/login');
   }finally{
       this.isLoading = false;
     }
+      },
+      async likeTvShow(tvShowID){
+        try {
+          await axios.post('/api/like-tvshow/', {tvShowID});
+
+      } catch (error) {
+        console.error('Like tv show failed', error.response ? error.response.data : error.message);
+      }
       }
   },
 

@@ -141,4 +141,9 @@ export default {
 }
 
 
+.like-button{
+  cursor: pointer;
+}
+
+
 </style>

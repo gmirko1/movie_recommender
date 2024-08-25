@@ -4,7 +4,7 @@ app = Flask(__name__)
 #############  IMPORTS  #################
 from user import login, logout, signup
 from logged_in_function import home, user_profile
-from media_library import movies, tvshows, books
+from media_library import movies, tvshows, books, like_media
 
 
 #############  TEST ROUTE  #################
@@ -118,6 +118,60 @@ def _media_library(app):
             return response
            
      
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+    
+    @app.route('/api/like-tvshow/', methods = ['POST'])
+    def _like_tvshow():
+        try:
+            response_like = like_media._like_tvshow()
+            
+            if response_like is not None:
+                response = make_response('Check sucessfull')
+                response.status_code = 200  
+                return response
+            else:
+                response = make_response('Error occured')
+                response.status_code = 400
+                return response
+
+           
+     
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+    
+    @app.route('/api/like-movie/', methods = ['POST'])
+    def _like_movie():
+        try:
+            response_like = like_media._like_movie()
+            
+            if response_like is not None:
+                response = make_response('Check sucessfull')
+                response.status_code = 200  
+                return response
+            else:
+                response = make_response('Error occured')
+                response.status_code = 400
+                return response
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+    
+    @app.route('/api/like-book/', methods = ['POST'])
+    def _like_book():
+        try:
+            response_like = like_media._like_book()
+            
+            if response_like is not None:
+                response = make_response('Check sucessfull')
+                response.status_code = 200  
+                return response
+            else:
+                response = make_response('Error occured')
+                response.status_code = 400
+                return response
         except Exception as ex:
             print(ex)
             return make_response("Error occured"), 500

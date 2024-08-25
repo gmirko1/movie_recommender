@@ -11,6 +11,7 @@
                 <p><b>{{ movie[1] }}</b></p>
                 <p>{{ movie[3] }}</p>
                 <p>{{ movie[2] }}</p>
+                <button class="like-button" @click="likeMovie(movie[0])">❤️</button>
 
             </div>
           </div>
@@ -57,6 +58,14 @@ export default {
   }finally{
       this.isLoading = false;
     }
+      },
+      async likeMovie(movieID){
+        try {
+          await axios.post('/api/like-movie/', {movieID});
+
+      } catch (error) {
+        console.error('Like movie failed', error.response ? error.response.data : error.message);
+      }
       }
   },
 

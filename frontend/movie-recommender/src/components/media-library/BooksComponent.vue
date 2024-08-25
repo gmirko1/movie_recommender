@@ -11,15 +11,12 @@
                 <p><b>{{ book[1] }}</b></p>
                 <p>{{ book[3] }}</p>
                 <p>{{ book[2] }}</p>
+                <button class="like-button"  @click="likeBook(book[0])">❤️</button>
 
             </div>
           </div>
-          
-
 
       </div>
-
-
       
     </div>
   </div>
@@ -56,6 +53,14 @@ export default {
   }finally{
       this.isLoading = false;
     }
+      },
+      async likeBook(bookID){
+        try {
+          await axios.post('/api/like-book/', {bookID});
+
+      } catch (error) {
+        console.error('Like book failed', error.response ? error.response.data : error.message);
+      }
       }
   },
 
