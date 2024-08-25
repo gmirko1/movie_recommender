@@ -62,11 +62,16 @@
         async userProfile(){
             try {
         const response = await axios.get('/api/user-profile/')
-        this.userData = response.data;
-        console.log(this.userData)
+       
+        if (response.status === 200) {
+            this.userData = response.data;
+            } else {
+                this.$router.push('/login');
+            }
       } catch (error) {
         console.error('User profile failed', error.response ? error.response.data : error.message);
-      }finally{
+        this.$router.push('/login');
+    }finally{
         this.isLoading = false;
       }
         }

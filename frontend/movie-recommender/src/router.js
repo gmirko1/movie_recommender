@@ -4,7 +4,7 @@ import UserSignup from './components/UserSignup.vue';
 import HomeLoggedUser from './components/HomeLoggedUser.vue'
 import UserProfile from './components/UserProfile.vue';
 import UserFavourites from './components/UserFavourites.vue';
-import MovieList from './components/MovieList.vue';
+import MediaLibrary from './components/MediaLibrary.vue';
 
 const routes = [
     {
@@ -33,9 +33,9 @@ const routes = [
       component: UserFavourites
     },
     {
-      path: '/movies',
-      name: 'MovieList',
-      component: MovieList
+      path: '/media-library',
+      name: 'MediaLibrary',
+      component: MediaLibrary
     },
     {
         path: '/:catchAll(.*)', 

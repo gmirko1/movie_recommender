@@ -10,7 +10,6 @@ def _user_validation():
         
         
         if cookie_check:
-            print("I am here")
             check_login = check_login_validator._check_login_validator(cookie_check)
             return check_login
         else:

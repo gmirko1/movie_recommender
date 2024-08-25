@@ -5,9 +5,10 @@ app = Flask(__name__)
 
 
 ############### ROUTES #####################
-from routes import _auth_routes, _user_routes
+from routes import _auth_routes, _user_routes, _media_library
 _auth_routes(app)
 _user_routes(app)
+_media_library(app)
 
 
 ############### RUN #####################

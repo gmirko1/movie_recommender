@@ -4,6 +4,7 @@ app = Flask(__name__)
 #############  IMPORTS  #################
 from user import login, logout, signup
 from logged_in_function import home, user_profile
+from media_library import movies, tvshows, books
 
 
 #############  TEST ROUTE  #################
@@ -68,6 +69,7 @@ def _user_routes(app):
             response_user_profile = user_profile._user_profile()
             if response_user_profile is not None:
                 response =  make_response(jsonify(response_user_profile))
+                response.status_code = 200
                 return response
             else:
                 response = make_response('Error occured')
@@ -79,3 +81,43 @@ def _user_routes(app):
             return make_response("Error occured"), 500
 
 
+
+def _media_library(app):
+    @app.route('/api/movies/', methods = ['GET'])
+    def _movies():
+        try:
+            response_movies = movies._get_all_movies()
+            response = make_response(jsonify(response_movies))
+            response.status_code = 200
+            return response
+           
+     
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+        
+    @app.route('/api/tv-shows/', methods = ['GET'])
+    def _tv_shows():
+        try:
+            response_tvshows = tvshows._get_all_tvshows()
+            response = make_response(jsonify(response_tvshows))
+            response.status_code = 200
+            return response
+           
+     
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500
+        
+    @app.route('/api/books/', methods = ['GET'])
+    def _books():
+        try:
+            response_books = books._get_all_books()
+            response = make_response(jsonify(response_books))
+            response.status_code = 200
+            return response
+           
+     
+        except Exception as ex:
+            print(ex)
+            return make_response("Error occured"), 500

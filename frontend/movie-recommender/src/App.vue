@@ -48,7 +48,7 @@ export default {
 }
 
 .nav a:hover {
-  color: #007bff;
+  color: #B6C4EF;
 }
 
 .nav a {
